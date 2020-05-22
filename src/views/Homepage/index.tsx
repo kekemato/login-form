@@ -1,6 +1,6 @@
 import React from "react";
-import { useAuth } from "../../contexts/authContext";
 
+import { useAuth } from "../../contexts/authContext";
 import LoginForm from "../../components/LoginForm";
 import UserPanel from "../../components/UserPanel";
 
