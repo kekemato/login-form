@@ -5,14 +5,14 @@ import { TextField } from "@material-ui/core";
 interface TextFieldProps {
   label?: string;
   type: string;
-  classes: Partial<Record<"root", string>> | undefined;
-  field: FieldProps;
-  form: FormikFormProps;
+  isError?: boolean;
+  field?: FieldProps;
+  form?: FormikFormProps;
 }
 
 const MyTextField: React.FC<TextFieldProps> = (props: TextFieldProps) => {
-  const { field, type, label, classes } = props;
-  return <TextField classes={classes} type={type} label={label} {...field} />;
+  const { field, type, label, isError } = props;
+  return <TextField type={type} label={label} error={isError} {...field} />;
 };
 
 export default MyTextField;
