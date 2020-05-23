@@ -11,7 +11,7 @@ const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<string | null>(null);
 
   useEffect(() => {
-    const isLoggedIn = sessionStorage.getItem("loggedIn");
+    const isLoggedIn = localStorage.getItem("loggedIn");
     setUser(isLoggedIn ? "Jan Nowak" : null);
   }, []);
 

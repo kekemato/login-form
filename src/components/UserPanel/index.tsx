@@ -11,7 +11,7 @@ const MyTextField: React.FC = () => {
 
   const handleLogOut = () => {
     setUser(null);
-    sessionStorage.removeItem("loggedIn");
+    localStorage.removeItem("loggedIn");
   };
 
   return (

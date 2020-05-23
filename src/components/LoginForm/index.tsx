@@ -29,13 +29,19 @@ const LoginForm = () => {
           validationSchema={loginSchema}
           onSubmit={async (values, { setSubmitting }) => {
             const url = "https://hpsupport-task.free.beeceptor.com/login";
-            try {
-              const { status } = await axios.post(url, values);
-              if (status === 200) {
-                setUser("Jan Nowak");
-                sessionStorage.setItem("loggedIn", "true");
+            //randomize login success
+            const isSuccess = Math.floor(Math.random() * 2);
+            if (isSuccess) {
+              try {
+                const { status } = await axios.post(url, values);
+                if (status === 200) {
+                  setUser("Jan Nowak");
+                  return localStorage.setItem("loggedIn", "true");
+                }
+              } catch {
+                setIsSnackbarOpen(true);
               }
-            } catch {
+            } else {
               setIsSnackbarOpen(true);
             }
             setSubmitting(false);

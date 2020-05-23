@@ -14,13 +14,13 @@ const Snackbar: React.FC<SnackbarProps> = ({
   return (
     <MuiSnackbar
       anchorOrigin={{
-        vertical: "bottom",
+        vertical: "top",
         horizontal: "right",
       }}
       open={isSnackbarOpen}
       autoHideDuration={4000}
       onClose={handleSnackbarClose}
-      message={"Wystąpił błąd. Proszę spróbować ponowanie później"}
+      message={"Wystąpił błąd systemu. Proszę spróbować ponownie później"}
       action={
         <IconButton
           size="small"
