@@ -10,7 +10,13 @@ import { useAuth } from "../../contexts/authContext";
 import useStyles from "./styles";
 
 const loginSchema = Yup.object().shape({
-  login: Yup.string().email("Nieprawidłowy adres email").required("Wymagane"),
+  login: Yup.string()
+    .email("Nieprawidłowy adres email")
+    .matches(
+      /^[\w!#$%&"'*+-/=?^_`{|}~]{1,64}@([\w-!#$%&"'*+-/=?^_`{|}~]{1,63})(\.[\w]{2,6})+$/,
+      "Nieprawidłowy adres email"
+    )
+    .required("Wymagane"),
   password: Yup.string()
     .min(5, "Hasło musi zawierać min. 5 znaków")
     .required("Wymagane"),
